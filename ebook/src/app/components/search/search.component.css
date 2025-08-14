@@ -1,0 +1,69 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+     font-family: Arial, sans-serif;
+  }
+  i {
+    font-family: "Font Awesome 6 Free"; 
+  }
+  main{
+    padding: 0 50px; /* Tạo khoảng cách hai bên */
+  margin-top: 20px;
+  }
+.ebook-wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 cột bằng nhau */
+    gap: 15px; /* Khoảng cách giữa các cột */
+    padding: 20px;
+  }
+  
+  .ebook-item {
+  
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+  
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .ebook-item img {
+    width: 100%;
+    height: auto;
+    box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .ebook-item:hover {
+    background: #e3e3e3;
+  }
+  .ebook-item p {
+    margin-top: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Giới hạn 2 dòng */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    font-size: 17px; /* Giảm font size nếu cần */
+    line-height: 1.4;
+    height: 40px; /* Đảm bảo đồng bộ chiều cao */
+  }
+  
+  @media (max-width: 1024px) {
+    .ebook-wrapper {
+        grid-template-columns: repeat(3, 1fr); /* 3 cột */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .ebook-wrapper {
+        grid-template-columns: repeat(1, 1fr); /* 2 cột */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .ebook-wrapper {
+        grid-template-columns: repeat(1, 1fr); /* 1 cột */
+    }
+  }

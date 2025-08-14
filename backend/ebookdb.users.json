@@ -1,0 +1,27 @@
+[{
+  "_id": {
+    "$oid": "67d25ab2273655a7b2d401bf"
+  },
+  "name": "QuangTon",
+  "email": "quangton175@gmail.com",
+  "password": "$2b$10$J0HmDhf20YU0MgZEN2hLheu8BB.DQKAS7s3NeX4Eet8YVJWbP1gO2",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67d37b6b0d5a9319f7ed9ddc"
+  },
+  "name": "",
+  "email": "",
+  "password": "$2b$10$6gnVGVWCSjZA4npHDbRnEeZol2GUoAXIzjEeiTY.Bhpa38wyATciW",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689dac138b1f608bb3898a02"
+  },
+  "name": "QuangTon",
+  "email": "quangton@gmail.com",
+  "password": "$2b$10$dhwNySCvc6lclD3CJjmBjeu6UKqW/xtH0HUD/V0NPDjOeq6c7sK2.",
+  "__v": 0
+}]

@@ -1,0 +1,32 @@
+
+    <main>
+        <div class="chitietsp">
+          <div *ngIf="book" class="container">
+            <div class="column-1">
+              <img width="100%" [src]="book.image" [alt]="book.title">
+            </div>
+          
+            <div class="column-2">
+              <h2>{{ book.title }}</h2>
+              <h2 style="color: rgb(236, 26, 26);margin-top: 10px;">{{ book.price }} đ</h2>
+          
+              <div class="author-container">
+                <div>Tác giả: {{ book.author }}</div>
+                <div>Ngày xuất bản: {{ book.publishDate }}</div>
+                <div>Dịch giả: {{ book.translator }}</div>
+                <div>Số trang: {{ book.pages }}</div>
+              </div>
+          
+              <div class="mua-them">
+                <button class="mua">MUA NGAY</button>
+                <button class="themvaogiohang" (click)="addToCart()">THÊM VÀO GIỎ HÀNG</button>
+
+              </div>
+          
+              <div class="custom-line"></div>
+              <p style="line-height: 1.7;">{{ book.description }}</p>
+            </div>
+          </div>
+                       
+        </div>
+    </main>

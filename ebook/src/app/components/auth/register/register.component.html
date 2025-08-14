@@ -1,0 +1,11 @@
+<div class="register-container">
+  <div>
+    <i style="font-size: 30px;" class="fa-solid fa-user-plus"></i>
+  </div>
+    <h2>Đăng ký</h2>
+    <input [(ngModel)]="name" placeholder="Tên" class="input-field">
+    <input [(ngModel)]="email" placeholder="Email" class="input-field">
+    <input [(ngModel)]="password" type="password" placeholder="Mật khẩu" class="input-field">
+    <button (click)="register()" class="register-button">Đăng ký</button>
+  </div>
+  

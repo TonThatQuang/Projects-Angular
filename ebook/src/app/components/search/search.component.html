@@ -1,0 +1,17 @@
+<main>
+  <h2 style="margin-top: 15px;"><i style="font-size: 19px; color: #BB0000;" class="fa-solid fa-bookmark"></i> Kết quả tìm kiếm cho "{{ searchQuery }}"</h2>
+
+<div *ngIf="searchResults.length > 0" class="ebook-wrapper">
+  <div class="ebook-item" *ngFor="let book of searchResults">
+    <a [routerLink]="['/product', book._id]">
+      <img [src]="book.image" [alt]="book.title">
+    </a>
+    <p>{{ book.title }}</p>
+  </div>
+</div>
+
+<div *ngIf="searchResults.length === 0">
+  <p>Không có sản phẩm nào.</p>
+</div>
+
+</main>

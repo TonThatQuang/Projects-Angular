@@ -1,0 +1,28 @@
+<h2>Quản lý Sách</h2>
+
+<!-- ✅ Form thêm sách -->
+<div class="form-container">
+  <input [(ngModel)]="newBook.title" placeholder="Tên sách">
+  <input [(ngModel)]="newBook.image" placeholder="URL hình ảnh">
+  <input [(ngModel)]="newBook.category" placeholder="Danh mục">
+  <button (click)="addBook()">Thêm Sách</button>
+</div>
+
+<!-- ✅ Danh sách sách -->
+<table>
+  <tr>
+    <th>Hình ảnh</th>
+    <th>Tiêu đề</th>
+    <th>Danh mục</th>
+    <th>Hành động</th>
+  </tr>
+  <tr *ngFor="let book of books">
+    <td><img [src]="book.image" width="50"></td>
+    <td>{{ book.title }}</td>
+    <td>{{ book.category }}</td>
+    <td>
+     <button (click)="deleteBook(book._id)">Xóa</button>
+
+    </td>
+  </tr>
+</table>

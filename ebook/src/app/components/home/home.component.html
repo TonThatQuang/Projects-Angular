@@ -1,0 +1,138 @@
+<div class="body-home">
+  <div class="carousel-container">
+    <div class="carousel">
+      <div class="carousel-track" [style.transform]="'translateX(-' + (currentIndex * 100) + '%)'">
+        <div class="carousel-item" *ngFor="let item of items">
+          <img [src]="item.image" alt="Slide Image">
+        </div>
+      </div>
+    </div>
+  
+    <button class="prev-btn" (click)="prevSlide()">&#10094;</button>
+    <button class="next-btn" (click)="nextSlide()">&#10095;</button>
+  </div>
+
+
+
+
+  <!---Danh mục-->
+<div class="danhmuc">
+  <h2>DANH MỤC EBOOK <span style="background-color: #DC0000; padding: 10px 20px; font-size: 16px; color: white; border-radius: 5px;">TẤT CẢ EBOOK</span></h2>
+
+  <div class="category-wrapper">
+    <div class="category-item">
+      <img width="60%" src="/img/danhmuc1.png" alt="">
+      <p>KGVH
+        Hồ Chí Minh
+        </p>
+    </div>
+    
+    <div class="category-item">
+      <img width="60%" src="/img/danhmuc2.png" alt="">
+      <p>Kinh tế</p>
+    </div>
+
+    <div class="category-item">
+      <img width="60%" src="/img/danhmuc3.png" alt="">
+      <p>Văn hóa
+        xã hội</p>
+    </div>
+
+    <div class="category-item">
+      <img width="60%" src="/img/danhmuc4.png" alt="">
+      <p>Lịch sửa - Chính trị
+        </p>
+    </div>
+
+    <div class="category-item">
+      <img width="60%" src="/img/danhmuc5.png" alt="">
+      <p>Sức khỏe
+        & Cuộc sống
+        </p>
+    </div>
+
+    <div class="category-item">
+      <img width="60%" src="/img/danhmuc6.png" alt="">
+      <p>Giáo trình
+        </p>
+    </div>
+
+    <div class="category-item">
+      <img width="60%" src="/img/danhmuc7.png" alt="">
+      <p>Thiếu nhi
+        </p>
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+<!----EBOOK MỚI-->
+
+  <div class="danhmuc">
+    <h2>EBOOK MỚI</h2>
+    <div class="ebook-wrapper">
+      <div class="ebook-item" *ngFor="let book of ebooksNew">
+        <a [routerLink]="['/product', book._id]">
+          <img [src]="book.image" [alt]="book.title">
+        </a>
+        <p>{{ book.title }}</p>
+      </div>
+      
+    </div>
+  </div>
+  
+  <div class="danhmuc">
+    <h2>EBOOK SẮP PHÁT HÀNH</h2>
+    <div class="ebook-wrapper">
+      <div class="ebook-item" *ngFor="let book of ebooksUpcoming">
+        <a [routerLink]="['/product', book._id]">
+          <img [src]="book.image" [alt]="book.title">
+        </a>
+        <p>{{ book.title }}</p>
+      </div>
+    </div>
+</div>
+
+<div class="danhmuc">
+    <h2>EBOOK NỔI BẬT</h2>
+    <div class="ebook-wrapper">
+      <div class="ebook-item" *ngFor="let book of ebooksFeatured">
+        <a [routerLink]="['/product', book._id]">
+          <img [src]="book.image" [alt]="book.title">
+        </a>
+        <p>{{ book.title }}</p>
+      </div>
+    </div>
+</div>
+
+<div class="danhmuc">
+    <h2>COMBO EBOOK</h2>
+    <div class="ebook-wrapper">
+      <div class="ebook-item" *ngFor="let book of ebooksCombo">
+        <a [routerLink]="['/product', book._id]">
+          <img [src]="book.image" [alt]="book.title">
+        </a>
+        <p>{{ book.title }}</p>
+      </div>
+    </div>
+</div>
+
+  
+
+
+
+<!----CÂU NÓI HAY-->
+<div class="quote-box">
+  <p class="quote-text">“Bạn biết rằng bạn đã đọc một cuốn sách hay khi bạn giở đến trang cuối cùng
+    và cảm thấy như mình vừa chia tay một người bạn”. (Khuyết danh)</p>
+</div>
+
+</div>
+
+
+
+  

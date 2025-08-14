@@ -1,0 +1,24 @@
+<div class="cart-container">
+  <h2><i class="fa-solid fa-bag-shopping"></i> Giỏ hàng</h2>
+
+  <div *ngIf="cartItems.length === 0">
+    <p style="margin-top: 10px;">Giỏ hàng trống.</p>
+  </div>
+
+  <div *ngFor="let item of cartItems; let i = index" class="cart-item">
+    <img [src]="item.image" alt="{{ item.title }}">
+    <div class="cart-item-info">
+      <h3>{{ item.title }}</h3>
+      <p>Giá: {{ item.price | number }} VNĐ</p>
+    </div>
+
+    <div class="cart-actions">
+      <button (click)="decreaseQuantity(i)"><i class="fa-solid fa-minus"></i></button>
+      <input type="number" [(ngModel)]="item.quantity" (change)="updateQuantity(i, item.quantity)" min="1">
+      <button (click)="increaseQuantity(i)"><i class="fa-solid fa-plus"></i></button>
+      <button style="margin-left: 10px;" (click)="removeFromCart(i)"><i class="fa-solid fa-trash"></i></button>
+    </div>
+  </div>
+
+  <button *ngIf="cartItems.length > 0" class="clear-cart" (click)="clearCart()">🛒 Xóa toàn bộ giỏ hàng</button>
+</div>
