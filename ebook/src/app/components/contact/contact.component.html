@@ -1,0 +1,61 @@
+<div class="alert alert-info" role="alert">
+  <div style="width: 100%; text-align: center">
+    <p><strong>THÔNG BÁO</strong></p>
+    <p>V/v Liên hệ tác quyền sách điện tử</p>
+  </div>
+
+  <div style="width: 100%; line-height: 1.8em; text-align: justify">
+    <p>
+      Nhà xuất bản Tổng hợp Thành phố Hồ Chí Minh xin chân thành cảm ơn Quý tác giả đã hợp tác, hỗ trợ với Nhà xuất bản chúng tôi trong nhiều năm qua.
+    </p>
+
+    <p>
+      Kính thưa Quý tác giả, ngày 2-10-2012, Nhà xuất bản Tổng hợp Thành phố Hồ Chí Minh kỷ niệm 35 năm thành lập Nhà xuất bản và cũng nhân dịp này, chúng tôi ra mắt độc giả Sách điện tử của Nhà xuất bản trên sachweb.vn.
+    </p>
+
+    <p>
+      Để kịp thời phục vụ độc giả, Nhà xuất bản đã đăng tải những tác phẩm giá trị mà trong đó có một số tác phẩm chúng tôi chưa tìm cách liên hệ được với tác giả. 
+      Chúng tôi chân thành cảm ơn Quý tác giả và xin Quý tác giả có tác phẩm xuất bản trên sachweb.vn vui lòng liên hệ với Nhà xuất bản qua điện thoại: 
+      <strong>(028) 38.256713</strong> hoặc email: 
+      <a href="mailto:tonghop&#64;nxbhcm.com.vn">tonghop&#64;nxbhcm.com.vn</a>.
+    </p>
+
+    <p>Trân trọng.</p>
+  </div>
+</div>
+
+<div class="contact-container">
+  <h2>Liên hệ với chúng tôi</h2>
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Họ và tên</label>
+      <input type="text" id="name" formControlName="name" class="form-control">
+      <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched" class="error-message">
+        Vui lòng nhập họ tên
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" formControlName="email" class="form-control">
+      <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" class="error-message">
+        Vui lòng nhập email hợp lệ
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="subject">Tiêu đề</label>
+      <input type="text" id="subject" formControlName="subject" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="message">Nội dung</label>
+      <textarea id="message" formControlName="message" class="form-control" rows="5"></textarea>
+      <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched" class="error-message">
+        Vui lòng nhập nội dung
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="contactForm.invalid" class="submit-btn">Gửi</button>
+  </form>
+</div>

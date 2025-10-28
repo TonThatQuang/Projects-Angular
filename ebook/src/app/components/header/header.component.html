@@ -1,22 +1,23 @@
 <header>
   <div class="header">
     <div class="container">
+      <!-- ==================== DESKTOP HEADER ==================== -->
       <div class="column1">
-        <img src="/img/logosw.png" alt="" />
+        <img src="/img/logosw.png" alt="Logo" />
         <ul>
-          <li><a href="">Trang chủ</a></li>
-          <li><a href="">Giới thiệu</a></li>
-          <li><a href="">Tin tức</a></li>
-          <li><a href="">Nạp số dư</a></li>
-          <li><a href="">Liên hệ</a></li>
+          <li><a routerLink="/">Trang chủ</a></li>
+          <li><a routerLink="/about">Giới thiệu</a></li>
+          <li><a routerLink="/news">Tin tức</a></li>
+          <li><a routerLink="/topup">Nạp số dư</a></li>
+          <li><a routerLink="/contact">Liên hệ</a></li>
         </ul>
       </div>
+
       <div class="column2">
         <div class="search-box">
           <form (submit)="onSearch()">
-            <input type="text" [(ngModel)]="searchTerm" name="search" placeholder="Tìm kiếm..." required>
+            <input type="text" [(ngModel)]="searchTerm" name="search" placeholder="Tìm kiếm..." required />
           </form>
-          
           <div class="icon-bg">
             <i class="fa-solid fa-search"></i>
           </div>
@@ -24,12 +25,16 @@
 
         <nav>
           <ul>
-           
-            <li *ngIf="!(userName$ | async)"><a (click)="goToLogin()">Đăng nhập</a></li>
-            <li *ngIf="!(userName$ | async)"><a (click)="goToRegister()">Đăng ký</a></li>
+            <li *ngIf="!(userName$ | async)">
+              <a (click)="goToLogin()">Đăng nhập</a>
+            </li>
+            <li *ngIf="!(userName$ | async)">
+              <a (click)="goToRegister()">Đăng ký</a>
+            </li>
             <li *ngIf="userName$ | async as user">{{ user }}!</li>
-            <li *ngIf="userName$ | async"><button (click)="logout()">Đăng xuất</button></li>
-            
+            <li *ngIf="userName$ | async">
+              <button (click)="logout()">Đăng xuất</button>
+            </li>
           </ul>
         </nav>
 
@@ -37,6 +42,67 @@
           <i class="fa-solid fa-cart-shopping"></i>
         </a>
       </div>
+
+      <!-- ==================== MOBILE HEADER ==================== -->
+      <div class="mobile-nav">
+        <!-- Nút mở menu -->
+        <button class="menu-toggle" (click)="toggleMenu()">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <!-- Thanh tìm kiếm ở giữa -->
+        <div class="mobile-search-box">
+          <form (submit)="onSearch()">
+            <input
+              type="text"
+              [(ngModel)]="searchTerm"
+              name="search"
+              placeholder="Tìm kiếm..."
+              required
+            />
+            <button type="submit" class="search-btn">
+              <i class="fa-solid fa-search"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- Icon giỏ hàng -->
+        <a (click)="goToCart()" class="cart-icon">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </a>
+      </div>
+
+      <!-- ==================== SIDE NAV MENU ==================== -->
+      <div class="side-nav" [class.active]="isMenuOpen">
+        <div class="nav-header">
+          <img src="/img/logosw.png" alt="Logo" />
+          <button class="close-menu" (click)="toggleMenu()">
+            <i class="fa-solid fa-times"></i>
+          </button>
+        </div>
+
+        <ul class="nav-links">
+          <li><a routerLink="/" (click)="toggleMenu()">Trang chủ</a></li>
+          <li><a routerLink="/about" (click)="toggleMenu()">Giới thiệu</a></li>
+          <li><a routerLink="/news" (click)="toggleMenu()">Tin tức</a></li>
+          <li><a routerLink="/topup" (click)="toggleMenu()">Nạp số dư</a></li>
+          <li><a routerLink="/contact" (click)="toggleMenu()">Liên hệ</a></li>
+        </ul>
+
+        <div class="nav-footer">
+          <ng-container *ngIf="!(userName$ | async)">
+            <button class="auth-btn" (click)="goToLogin()">Đăng nhập</button>
+            <button class="auth-btn" (click)="goToRegister()">Đăng ký</button>
+          </ng-container>
+          <ng-container *ngIf="userName$ | async as user">
+            <span class="user-name">{{ user }}!</span>
+            <button class="auth-btn" (click)="logout()">Đăng xuất</button>
+          </ng-container>
+        </div>
+      </div>
+
+      <!-- Overlay khi mở menu -->
+      <div class="overlay" [class.active]="isMenuOpen" (click)="toggleMenu()"></div>
     </div>
   </div>
 </header>

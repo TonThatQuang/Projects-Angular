@@ -1,100 +1,707 @@
 * {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-     font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
+
 i {
-  font-family: "Font Awesome 6 Free"; 
+  font-family: "Font Awesome 6 Free";
 }
 
 .header {
-    width: 100%; 
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-    background-color: white;
+  width: 100%; 
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  background-color: white;
+
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
-a{
-    text-decoration: none;
-}
+
 .container {
-    padding-left: 20px;
-    padding-right: 20px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  position: relative;
+}
+
+/* Desktop Layout */
+.column1 {
+  flex: 3;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 10px;
+}
+
+.column1 img {
+  height: 50px;
+}
+
+.column1 ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  font-size: 17px;
+}
+
+.column1 a {
+  color: black;
+  text-decoration: none;
+}
+
+.column1 li:hover a {
+  color: #C83232;
+}
+
+.column2 {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+}
+
+.column2 nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.column2 nav a,
+.column2 nav button {
+  color: black;
+  text-decoration: none;
+  background: none;
+  border: none;
+  font-size: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+.column2 nav a:hover,
+.column2 nav button:hover {
+  color: #C83232;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  border-radius: 25px;
+  border: 1px solid black;
+  width: 230px;
+  background-color: #fff;
+  overflow: hidden;
+  position: relative;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 10px 40px 10px 10px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+}
+
+.icon-bg {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  background-color: #C83232;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Mobile Menu Styles */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+.side-nav {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 300px;
+  height: 100vh;
+  background-color: white;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: left 0.3s ease;
+  z-index: 1001;
+  overflow-y: auto;
+}
+
+.side-nav.active {
+  left: 0;
+}
+
+.nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.nav-header img {
+  height: 30px;
+}
+
+.close-menu {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 20px 0;
+}
+
+.nav-links li {
+  padding: 15px 20px;
+}
+
+.nav-links a {
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+  display: block;
+}
+
+.nav-links li:hover {
+  background-color: #f5f5f5;
+}
+
+.nav-footer {
+  padding: 20px;
+  border-top: 1px solid #eee;
+}
+
+.nav-footer .auth-btn {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #C83232;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .column1,
+  .column2 {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .mobile-icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .mobile-icons a {
+    color: #333;
+    font-size: 20px;
+    text-decoration: none;
+  }
+
+  .side-nav {
+    display: block;
+  }
+}
+
+/* Logo styles */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 40px;
+}
+
+/* Desktop Navigation */
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex: 1;
+  margin-left: 40px;
+}
+
+.desktop-nav .nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.desktop-nav .nav-links a {
+  color: #333;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 5px 0;
+  transition: color 0.3s;
+}
+
+.desktop-nav .nav-links a:hover {
+  color: #C83232;
+}
+
+.desktop-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.desktop-actions .cart-icon {
+  font-size: 20px;
+  color: #333;
+  cursor: pointer;
+}
+
+.desktop-actions .auth-btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #C83232;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.desktop-actions .auth-btn:hover {
+  background-color: #a62828;
+}
+
+.user-name {
+  font-weight: 500;
+  color: #333;
+}
+
+/* Search box styles */
+.search-box {
+  display: flex;
+  align-items: center;
+  border-radius: 25px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  overflow: hidden;
+  position: relative;
+  width: 250px;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 8px 40px 8px 15px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+}
+
+.icon-bg {
+  position: absolute;
+  right: 0;
+  width: 35px;
+  height: 100%;
+  background-color: #C83232;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+}
+
+/* Mobile elements (hidden on desktop) */
+.menu-toggle,
+.mobile-icons,
+.side-nav {
+  display: none;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .menu-toggle,
+  .mobile-icons {
+    display: flex;
+    align-items: center;
+  }
+
+  .menu-toggle {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+    padding: 5px;
+  }
+
+  .mobile-icons {
+    gap: 15px;
+  }
+
+  .mobile-icons a {
+    color: #333;
+    font-size: 20px;
+  }
+
+  .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Side Navigation Menu */
+  .side-nav {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: white;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease;
+    z-index: 1001;
+    overflow-y: auto;
+  }
+
+  .side-nav.active {
+    left: 0;
+  }
+
+  .nav-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-}
-
-.column1 {
-    flex: 3;
-    display: flex;
-    align-items: center;
-    gap: 40px;
-
-    padding: 10px;
-}
-.column1 img {
-    height: 50px;
-}
-.column1 a{
-    color: black;
-}
-.column1 li:hover{
-    columns: #AB4C38;
-}
-.column1 ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-    font-size: 17px;
-}
-.column2 {
-    flex: 2;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-
-    padding: 10px;
-}
-.column2 input {
-    padding: 12px;
-    border-radius: 25px;
-    outline: none;
-    border: 1px solid black;
-}
-.search-box {
-    display: flex;
-    align-items: center;
-    border-radius: 25px;
-    border: 1px solid black;
-    width: 230px;
-    overflow: hidden; /* Để bo tròn đẹp */
-    background: white;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
   }
-  
-  .search-box input {
-    flex: 1;
-    padding: 10px;
+
+  .nav-header img {
+    height: 30px;
+  }
+
+  .close-menu {
+    background: none;
     border: none;
-    outline: none;
-    background: transparent;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
   }
-  
-  .icon-bg {
-    background-color: #C83232;
-    padding: 10px;
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
+
+  .side-nav .nav-links {
+    list-style: none;
+    padding: 20px 0;
+  }
+
+  .side-nav .nav-links li {
+    padding: 15px 20px;
+  }
+
+  .side-nav .nav-links a {
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+  }
+
+  .side-nav .nav-links li:hover {
+    background-color: #f5f5f5;
+  }
+
+  .side-nav .search-box {
+    margin: 20px;
+    width: auto;
+  }
+
+  .nav-footer {
+    padding: 20px;
+    border-top: 1px solid #eee;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px; /* Chiều rộng icon */
+    flex-direction: column;
+    gap: 10px;
   }
+
+  .nav-footer .auth-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #C83232;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  /* Overlay */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+  }
+
+  .overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* Logo styles */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 40px;
+}
+
+/* Mobile menu toggle button */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+  padding: 5px;
+}
+
+/* Mobile icons */
+.mobile-icons {
+  display: none;
+  gap: 15px;
+  align-items: center;
+}
+
+.mobile-icons a {
+  color: #333;
+  font-size: 20px;
+}
+
+/* Side Navigation Menu */
+.side-nav {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 300px;
+  height: 100vh;
+  background-color: white;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: left 0.3s ease;
+  z-index: 1001;
+  overflow-y: auto;
+}
+
+.side-nav.active {
+  left: 0;
+}
+
+.nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.nav-header img {
+  height: 30px;
+}
+
+.close-menu {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 20px 0;
+}
+
+.nav-links li {
+  padding: 15px 20px;
+}
+
+.nav-links a {
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+  display: block;
+}
+
+.nav-links li:hover {
+  background-color: #f5f5f5;
+}
+
+/* Search box in side nav */
+.side-nav .search-box {
+  margin: 20px;
+  width: auto;
+}
+
+/* Auth buttons in side nav */
+.nav-footer {
+  padding: 20px;
+  border-top: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.auth-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #C83232;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.user-name {
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Search box styles */
+.search-box {
+  display: flex;
+  align-items: center;
+  border-radius: 25px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  overflow: hidden;
+  position: relative;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 10px 40px 10px 15px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+}
+
+.icon-bg {
+  position: absolute;
+  right: 0;
+  width: 40px;
+  height: 100%;
+  background-color: #C83232;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .menu-toggle,
+  .mobile-icons {
+    display: flex;
+  }
+
+  .logo {
+    margin: 0 auto;
+  }
+
+  .search-box {
+    display: none;
+  }
+
+  .nav-links {
+    display: block;
+  }
+}
   
   .icon-bg i {
-    color: white;
+    color: #fff;
     font-size: 16px;
   }
+  
   
 .column2 button {
     background: none;
@@ -120,6 +727,99 @@ ul{
 }
 ul li{
     list-style: none;
+}
+
+/* ==================== MOBILE NAV LAYOUT ==================== */
+@media (max-width: 768px) {
+  /* Ẩn phần desktop */
+  .column1,
+  .column2,
+  .logo {
+    display: none !important;
+  }
+
+  .container {
+    padding: 10px 15px;
+  }
+
+  /* Hiển thị mobile nav */
+  .mobile-nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  /* Icon menu trái */
+  .menu-toggle {
+    font-size: 24px;
+    color: #333;
+    background: none;
+    border: none;
+  }
+
+  /* Thanh tìm kiếm ở giữa – giống hệt desktop */
+  .mobile-search-box {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-search-box form {
+    position: relative;
+    width: 100%;
+    max-width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    background-color: #fff;
+    overflow: hidden;
+  }
+
+  .mobile-search-box input {
+    width: 100%;
+    padding: 10px 45px 10px 15px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background: transparent;
+  }
+
+  /* Icon nền đỏ bên phải (giống desktop .icon-bg) */
+  .mobile-search-box .search-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    border: none;
+    background-color: #C83232;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    cursor: pointer;
+  }
+
+  .mobile-search-box .search-btn i {
+    font-size: 16px;
+  }
+
+  /* Icon giỏ hàng bên phải */
+  .cart-icon {
+    font-size: 22px;
+    color: #333;
+  }
+}
+
+/* Ẩn thanh mobile khi ở máy tính */
+@media (min-width: 769px) {
+  .mobile-nav {
+    display: none !important;
+  }
 }
 
 

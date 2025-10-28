@@ -1,68 +1,128 @@
 * {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-     font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Georgia', 'Times New Roman', serif; /* Font cổ điển */
 }
-i {
-  font-family: "Font Awesome 6 Free"; 
+
+/* Nền trang đăng ký */
+.register-page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://wallpapers.com/images/hd/gates-annex-library-at-caltech-83laxb74snyl1kxg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
 }
-main{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height:60vh;
+
+.register-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(3px); /* làm mờ ảnh nền */
+  z-index: 1;
 }
-/* Định dạng container */
+
+.register-page > * {
+  position: relative;
+  z-index: 2; /* đảm bảo nội dung hiển thị lên trên */
+}
+
+
+/* Container đăng ký */
 .register-container {
-    width: 100%;
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+  width: 100%;
+  max-width: 420px;
+  padding: 35px 25px;
+  background: rgba(255, 250, 240, 0.92);
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  border: 1px solid rgba(150, 100, 50, 0.3);
+  backdrop-filter: blur(4px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.register-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+}
+
+/* Icon người dùng */
+.register-container i {
+  font-size: 48px;
+  color: #8b5e3c;
+  margin-bottom: 8px;
+}
+
+/* Tiêu đề */
+.register-container h2 {
+  margin: 15px 0 25px;
+  font-size: 26px;
+  color: #4b2e05;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+/* Input */
+.input-field {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 12px 0;
+  border: 1px solid #c7a17a;
+  border-radius: 10px;
+  background: #fffaf2;
+  font-size: 16px;
+  color: #4b2e05;
+  transition: all 0.3s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #b5835a;
+  background: #fff3e0;
+  box-shadow: 0 0 6px rgba(181, 131, 90, 0.4);
+}
+
+/* Nút đăng ký */
+.register-button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background: linear-gradient(135deg, #b5835a, #8b5e3c);
+  color: #fffaf0;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.4s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(139, 94, 60, 0.4);
+}
+
+.register-button:hover {
+  background: linear-gradient(135deg, #a8724a, #734b30);
+  transform: scale(1.02);
+}
+
+/* Hiệu ứng viền sáng mờ */
+.register-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.25), transparent 70%);
+  pointer-events: none;
+}
+
+/* Responsive cho điện thoại */
+@media (max-width: 500px) {
+  .register-container {
+    width: 90%;
+    padding: 25px;
   }
-  
-  /* Tiêu đề */
-  .register-container h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
-  }
-  
-  /* Input field */
-  .input-field {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  /* Nút đăng ký */
-  .register-button {
-    width: 100%;
-    padding: 10px;
-    background: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  .register-button:hover {
-    background: #218838;
-  }
-  
-  /* Responsive */
-  @media (max-width: 500px) {
-    .register-container {
-      width: 90%;
-    }
-  }
-  
+}

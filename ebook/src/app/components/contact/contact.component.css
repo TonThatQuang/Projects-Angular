@@ -1,0 +1,139 @@
+/* Reset và font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+.contact-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+textarea.form-control {
+  resize: vertical;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.submit-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  background-color: #45a049;
+}
+
+.submit-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.submit-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  background-color: #45a049;
+}
+
+.submit-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+
+
+
+
+.alert {
+  background-color: #D9EDF7; /* màu nền xanh nhạt */
+  border: 1px solid #BCE8F1; /* viền xanh nhạt */
+  border-radius: 6px; /* bo góc nhẹ */
+  color: #31708F; /* màu chữ xanh đậm */
+  padding: 20px 25px;
+  font-size: 16px;
+  line-height: 1.8em;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  width: 100%;
+  
+  margin: 20px auto;
+}
+
+.alert a {
+  color: #31708F;
+  text-decoration: underline;
+}
+
+.alert a:hover {
+  color: #245269;
+}
+
+.alert strong {
+  font-size: 18px;
+}
+
+.alert div:first-child {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.alert div:last-child {
+  text-align: justify;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .alert {
+    font-size: 15px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .alert {
+    font-size: 14px;
+    line-height: 1.6em;
+  }
+}
